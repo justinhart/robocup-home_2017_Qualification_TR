@@ -27,6 +27,9 @@
 \usepackage{graphicx}
 \usepackage{wrapfig}
 \usepackage{verbatim}
+\usepackage{caption}
+\usepackage{subcaption}
+\captionsetup{compatibility=false}
 
 \usepackage{lipsum}
 \newcommand{\BnL}[1][1em]{ \includegraphics[width=#1]{images/bnl.jpg} }
@@ -34,6 +37,7 @@
 \begin{document}
 
 \title{UT Austin Villa\\ RoboCup@Home\\ Domestic Standard Platform League \\Team Description Paper}
+\titlerunning{UT Austin Villa\\ RoboCup@Home\\ DSPL TDP}
 
 \author{Justin W. Hart\and Peter Stone\and Andrea Thomaz\and Scott Neikum}
 \institute{Department of Computer Science\\ Department of Electrical and Computer Engineering\\ University of Texas at Austin\\
@@ -44,9 +48,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{abstract}
-Our general approach to the RoboCup@Home competition is one of integrating the HSR into the existing robotics research infrastructure of three collaborating laboratories here at the University of Texas at Austin. These laboratories focus on research toward the development of artificial intelligence, machine learning, and human-robot interaction technologies which provide services to and interact with human users in both a simulated home environment and in a live deployment known as the Building-Wide Intelligence (BWI) Project in the Gates-Dell Computer Science Complex at the University of Texas at Austin. By incorporating the HSR into our existing ecosystem, we will be able to rapidly deploy relevant components from our ongoing research into its software infrastructure for the competition. Incorporation into our existing research also guarantees the reusability of software developed for the competition as it is integrated into the large software deployment of the BWI Project. Significant portions of the code developed by our group for competition will be released as components of the BWI infrastructure code as open source software through ROS.org.
-
-as well as to test it in the rich test environment that has been developed for our combined research. Relevant current work by our groups involves research in natural language processing, multimodal language learning, learning from demonstration, human activity recognition, planning, and probabilistic and symbolic reasoning. In the past year, significant work has been performed on domestic tasks such as storing groceries, and language tasks such as natural language processing and the performance of natural language tasks from speech.
+Our general approach to the RoboCup@Home competition is one of integrating the HSR into the existing robotics research infrastructure of three collaborating laboratories here at the University of Texas at Austin. These laboratories focus on research toward the development of artificial intelligence, machine learning, and human-robot interaction technologies which provide services to and interact with human users in both a simulated home environment and in a live deployment known as the Building-Wide Intelligence (BWI) Project in the Gates-Dell Computer Science Complex at the University of Texas at Austin. By incorporating the HSR into our existing ecosystem, we will be able to rapidly deploy relevant components from our ongoing research into its software infrastructure for the competition. Incorporation into our existing research also guarantees the reusability of software developed for the competition as it is integrated into the large software deployment of the BWI Project. Significant portions of the code developed by our group for competition will be released as components of the BWI infrastructure code as open source software through ROS.org. Relevant current work by our groups involves research in natural language processing, multimodal language learning, learning from demonstration, human activity recognition, planning, and probabilistic and symbolic reasoning. In the past year, significant work has been performed on domestic tasks such as storing groceries, and language tasks such as natural language processing and the performance of natural language tasks from speech.
 
 %In your abstract, please state your main research line and your achievements of this year (on which problem or set of problems are you focusing all the team efforts). Tell why this research is important, how are you approaching to the problem solution and which results do you expect to obtain.
 
@@ -55,74 +57,45 @@ as well as to test it in the rich test environment that has been developed for o
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Approach}
-
+\section{Introduction}
 The UT Austin Villa team, from the University of Texas at Austin, has a long and successful history of RoboCup participation. In 2016, we finished 2nd place in the soccer standard platform league (SPL), and won first place in the 3D simulation league for the 5th time in 6 years.  Although we have also pursued research on domestic and service robots for many years, we have only once participated in RoboCup@Home, finishing in 2nd place in 2007.  This application brings together the laboratories of UT Austin Villa founder and team leader of Prof. Peter Stone with those of two colleagues at UT Austin who are experts in interactive robotics, but who have never participated in RoboCup: Prof. Andrea Thomaz and Prof. Scott Niekum. Our entry in the 2017 RoboCup@Home competition will unite these three groups to focus our complementary research in the areas of machine learning, service robotics, and human robot interaction towards an entry in the RoboCup@Home SPL using the Toyota Human Support Robot (HSR).
 
-Research in Artificial Intelligence (AI) has long assumed that one day
-there would be general purpose robotic platforms that could execute
-symbolic actions, and especially long and complex sequences of such
-actions.  However, until recently, most robots have been limited to
-performing small sets of actions in very limited configuration spaces
-for relatively short periods of time.
+\section{Approach}
+The laboratories of Stone, Thomaz, and Niekum currently have active research programs that are directly relevant to the challenge put forth by the RoboCup@Home competition. Prof. Stone's laboratory is pursuing the Building-Wide Intelligence (BWI) project, which includes a group of several human-interactive robots, and which has the long-term objective of enabling a team of robots to achieve long-term autonomy within the rich socially interactive environment of the UT Austin Computer Science Department in the Gates-Dell Complex. Profs. Thomaz and Niekum have performed much of their past research in home-like environments and have an existing shared lab space set up as an apartment with a living room, dining room, and kitchen. Currently, our groups use similar, but distinct robot platforms. The BWI project uses a fleet of SegBots, Figure \ref{fig:1a}, custom designed mobile robots built atop Segway RMP bases. In the past year BWI has been performing robot learning experiments with a SegBot with Kinova Mico arm mounted, Figure \ref{fig:1b}. Thomaz and Niekum use a pair of similar custom robots atop an omni-drive base, both with arms, Figure \ref{fig:1c}. The basic approach that our team will take in the RoboCup@Home competition is to integrate the HSR platform into the fleet of robots used in the Building-Wide Intelligence project, and to use development on the shared common platform of the Toyota HSR towards the RoboCup@Home competition as a means of integrating research across our laboratories.
 
-Recent progress in both the hardware robustness and software
-sophistication of mobile robots has finally enabled the integration of
-modern AI planning, reasoning, sensing, and acting all onboard
-physical robots that are capable of long-term autonomy in open,
-dynamic, and human-inhabited environments.  On the other hand, this
-progress has exposed the integration challenges of combining low-level
-control with high-level planning, especially in the face of the
-inherent uncertainty that comes from Human-Robot Interaction (HRI).
-By defining a novel competition framework situated within a domestic
-environment that uniquely exposes these challenges, RoboCup@Home is
-an ideal setting for advancing the state of the art in long-term
-autonomy for human-interactive robots.
+\begin{figure}	
+	\centering
+	\begin{subfigure}[t]{1.4in}
+		\centering
+        \includegraphics[width=\textwidth]{images/bwi1.jpg}
+		\caption{Two SegBots from the Building-Wide Intelligence Project at UT Austin.}\label{fig:1a}		
+	\end{subfigure}
+	\quad
+	\begin{subfigure}[t]{1.4in}
+		\centering
+        \includegraphics[width=\textwidth]{images/bwi_arm.jpg}
+		\caption{SegBot with mounted Kinova Mico arm.}\label{fig:1b}
+	\end{subfigure}
+	\quad
+	\begin{subfigure}[t]{1.4in}
+		\centering
+        \includegraphics[width=\textwidth]{images/ut_poli.jpg}
+		\caption{Custom robot used in the simulated home environment in Thomaz and Niekum's shared laboratory space.}\label{fig:1c}
+	\end{subfigure}
+	\caption{Robotic platforms currently in use in research by members of the UT Austin Villa RoboCup@Home Team. These platforms are similar to the Toyota Human Support Robot (HSR), which will be used in the Domestic Standard Platform League competition.}\label{fig:1}
+\end{figure}
 
-With this motivation in mind, Profs. Stone, Thomaz, and Niekum aim to
-combine their expertise in reinforcement learning, human-robot
-interaction, and learning from demonstration towards a full solution
-to the RoboCup@Home challenge.  We propose to bring together
-postdocs, graduate students, and undergraduate students from each of
-our groups to enable the HSR robot to interact seemlessly with people
-in the environment, and to learn behaviors ranging from object manipulation
-to robust environmental perception, to high-level task sequencing.
-Our development efforts will be situated within our ongoing
-Building-Wide Intelligence project, which already includes several
-human-interactive robots, and which has the long-term objective of
-enabling a team of robots to achieve long-term autonomy within the
-rich socially interactive environment of the UT Austin Computer
-Science building.  The HSR robot will thus be embedded within a
-multi-robot system of heterogeneous robots while its novel software is
-under development at UT Austin (though of course during the
-competition it will act fully independently).
+Among the central goals of our research is the development of robotic systems capable of long-term autonomous human-robot interaction, automated planning, reasoning, and learning in complex real-world environments. By defining a novel competition framework situated within a domestic environment that uniquely exposes the challenges of this proposition, RoboCup@Home is an ideal setting for advancing the state of the art in long-term autonomy for human-interactive robots, and presents a both a task framework that is harmonized with our goals and a standard set of tasks against which we can compare our platform to other systems. With this motivation in mind, it is our goal to combine the expertise of Profs. Stone, Thomaz, and Niekum in the areas of reinforcement learning, human-robot interaction, and learning from demonstration towards a full solution to the RoboCup@Home challenge, along with their laboratories. Our team brings together postdocs, graduate students, and undergraduate students from each of our groups to enable the robot to interact seemlessly with people in the environment, and to learn behaviors ranging from object manipulation to robust environmental perception, to high-level task sequencing.
 
-Profs. Thomaz and Niekum have performed much of their past research
-in home-like environments and have an existing shared lab space set up
-as an apartment with a living room, dining room, and kitchen.  This
-lab space is in the same building as the Building-Wide Intelligence project,
-and will therefore allow us to easily develop and test the robot in
-both an open, fully interactive setting and a more controlled
-home-like setting.
+By leveraging our existing software and incorporating our HSR into the BWI infrastructure, we hope to gain a jump start on the competition. We will also be able to make use of the infrastructure which we have in place for experiments on human-robot interaction in domestic and public spaces. Thomaz and Niekum's shared laboratory space is located in the same building as the BWI project, allowing us to test our system in both an open, interactive setting with many people to potentially interact with, and more controlled home-like settings. We expect that participation in the RoboCup@Home will boost our research efforts through collaboration between our groups, the sharing of ideas in an environment of friendly competition, and the advancements required to accomplish the tasks of the competition itself. We expect to make advancements on topics ranging from activity recognition, to robust perception, to learned planning and navigation, to general human-robot interaction.
 
-We expect the HSR robot to enhance our overall system's breach of
-capabilities and thus quickly play an important role in novel research
-on topics ranging from activity recognition, to robust perception, to
-learned planning and navigation, to general human-robot interaction.
+%\section{Externally Available Components}
 
-\section{Externally Available Components}
+%Upon receiving the HSR robots, we will be able to ramp up quickly by building upon the extensive ROS ecosystem and other externally available software, as well as upon our existing BWI software infrastructure and our home-robotics research.
 
-Upon receiving the HSR robots, we will be able to ramp up quickly by
-building upon the extensive ROS ecosystem and other externally
-available software, as well as upon our existing BWI software
-infrastructure and our home-robotics research.
+%Our own contributions to the growing ecosystem of externally available components, including a general architecture for service robots, robot reinforcement learning software, robot learning from demonstration software, and a package for tag-based perception are listed in Section~\ref{sec:reuse} below, with links on the application webpage.
 
-Our own contributions to the growing ecosystem of externally available
-components, including a general architecture for service robots, robot
-reinforcement learning software, robot learning from demonstration
-software, and a package for tag-based perception are listed in
-Section~\ref{sec:reuse} below, with links on the application webpage.
-
+HERE HERE HERE
 
 \section{Research Focus}
 
@@ -372,11 +345,7 @@ as links to our papers, is available from the application webpage.
 \section{Re-Usability}
 \label{sec:reuse}
 
-Throughout our development, we will continue our strong tradition of
-releasing well-documented, self-contained behavior modules for
-components of autonomous robots that can be used by other research
-groups to enhance their own research.  As listed with links on the
-propoosal webpage, these include:
+Throughout our development, we will continue our strong tradition of releasing well-documented, self-contained behavior modules for components of autonomous robots that can be used by other research groups to enhance their own research.  As listed with links on the propoosal webpage, these include:
 
 \begin{itemize}
 

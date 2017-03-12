@@ -39,7 +39,7 @@
 \title{UT Austin Villa\\ RoboCup@Home\\ Domestic Standard Platform League \\Team Description Paper}
 \titlerunning{UT Austin Villa\\ RoboCup@Home\\ DSPL TDP}
 
-\author{Justin W. Hart\and Peter Stone\and Andrea Thomaz\and Scott Neikum}
+\author{Justin W. Hart\and Peter Stone\and Andrea Thomaz\and Scott Niekum}
 \institute{Department of Computer Science\\ Department of Electrical and Computer Engineering\\ University of Texas at Austin\\
 \texttt{http://devoted-web-site.url}}
 \maketitle
@@ -94,8 +94,6 @@ By leveraging our existing software and incorporating our HSR into the BWI infra
 %Upon receiving the HSR robots, we will be able to ramp up quickly by building upon the extensive ROS ecosystem and other externally available software, as well as upon our existing BWI software infrastructure and our home-robotics research.
 
 %Our own contributions to the growing ecosystem of externally available components, including a general architecture for service robots, robot reinforcement learning software, robot learning from demonstration software, and a package for tag-based perception are listed in Section~\ref{sec:reuse} below, with links on the application webpage.
-
-HERE HERE HERE
 
 \section{Research Focus}
 

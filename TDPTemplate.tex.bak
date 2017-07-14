@@ -1,0 +1,68 @@
+
+%%%%%%%%%%%%%%%%%%%%%%% file typeinst.tex %%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% This is the LaTeX source for the TDPTemplate using
+% the LaTeX document class 'llncs.cls' Springer LNAI format
+% used in the RoboCup Symposium submissions.
+% http://www.springer.com/computer/lncs?SGWID=0-164-6-793341-0
+%
+% It may be used as a template for your own TDP - copy it
+% to a new file with a new name and use it as the basis
+% for your Team Description Paper
+%
+% NB: the document class 'llncs' has its own and detailed documentation, see
+% ftp://ftp.springer.de/data/pubftp/pub/tex/latex/llncs/latex2e/llncsdoc.pdf
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[runningheads,a4paper]{llncs}
+\usepackage{amssymb}
+%\usepackage{authblk}
+\setcounter{tocdepth}{3}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage[utf8]{inputenc}
+\usepackage{url}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{verbatim}
+\usepackage{caption}
+\usepackage{subcaption}
+\captionsetup{compatibility=false}
+\usepackage{paralist}
+
+\usepackage{lipsum}
+\newcommand{\BnL}[1][1em]{ \includegraphics[width=#1]{images/bnl.jpg} }
+
+\makeatletter
+\def\RemoveSpaces#1{\zap@space#1 \@empty}
+\makeatother
+
+\begin{document}
+
+\title{UT Austin Villa\\ RoboCup@Home\\ Domestic Standard Platform League \\Team Description Paper}
+\titlerunning{UT Austin Villa\\ RoboCup@Home\\ DSPL TDP}
+
+\author{Justin W. Hart$^1$\and Peter Stone$^1$\and Andrea Thomaz$^2$\and \\Scott Niekum$^1$\and Luis Sentis$^3$\and Raymond J. Mooney$^1$}
+\institute{$^1$Department of Computer Science\\ $^2$Department of Electrical and Computer Engineering\\ $^3$Department of Aerospace Engineering\\ University of Texas at Austin\\
+\texttt{\RemoveSpaces{http://www.cs.utexas.edu/\textasciitilde AustinVilla/athome/Team2017/}}}
+
+\authorrunning{Hart et al.}
+\maketitle
+
+\input{abstract.tex}
+\input{introduction.tex}
+\input{approach.tex}
+\input{research_focus.tex}
+\input{innovative_tech.tex}
+\input{applicability.tex}
+
+\bibliographystyle{splncs}
+\bibliography{refsFromIJRR,Niekum}
+
+\newpage
+\input{Team}
+
+\end{document} 

@@ -1,0 +1,31 @@
+
+\makeatletter
+\def\RemoveSpaces#1{\zap@space#1 \@empty}
+\makeatother
+
+
+\begin{document}
+\title{UT Austin Villa\\ RoboCup@Home\\ Domestic Standard Platform League \\Team Description Paper}
+\titlerunning{UT Austin Villa\\ RoboCup@Home\\ DSPL TDP}
+\begin{comment}
+\author[1]{Justin W. Hart}
+\author[1]{Peter Stone}
+\author[2]{Andrea Thomaz}
+\author[1]{Scott Niekum}
+\author[3]{Luis Sentis}
+\author[1]{Raymond Mooney}
+\affil[1]{Department of Computer Science}
+\affil[2]{Department of Electrical and Computer Engineering}
+\affil[3]{Department of Aerospace Engineering}
+
+\renewcommand\Authands{ and }
+\end{comment}
+
+\author{Justin W. Hart\and Peter Stone\and Andrea Thomaz\and \\Scott Niekum\and Luis Sentis\and Raymond Mooney}
+\institute{
+Department of Computer Science\\
+Department of Electrical and Computer Engineering\\
+Department of Aerospace Engineering\\
+University of Texas at Austin\\\texttt{\RemoveSpaces{http://www.cs.utexas.edu/\textasciitilde AustinVilla/athome/Team2017/}}}
+
+\maketitle

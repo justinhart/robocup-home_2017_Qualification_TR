@@ -1,0 +1,295 @@
+\section{Innovative Technology}
+\label{sec:tech}
+
+The collective breadth of our research has enabled contributions to a
+variety of AI sub-areas beyond HRI, including AI planning, knowledge
+representation and reasoning, natural language processing, and machine
+learning.  Here we provide a brief description of some of our
+published research, some of which will form the core of our
+RoboCup@Home approach, and some of which we expect to be substantially
+extended and improved through our participation in RoboCup@Home.
+
+%\begin{description}
+
+\subsection{Understanding natural language requests}
+%\item [Understanding natural language requests:] 
+One of the most natural forms of human-robot interaction for humans is through natural language.
+However natural language processing remains a challenging research area within AI, and intelligent service robots should be able to efficiently and accurately understand commands from human users speaking in natural language.
+
+We introduced research contributions pertaining to language learning
+to facilitate on-line improvement of the robots' understanding of
+spoken commands.  We use a dialog agent embodied in a BWIBot to
+communicate with users through natural language and improve language
+understanding over time using data from these conversations
+\cite{thomason:15}.  By learning from conversations, our approach can
+recognize more complex language than keyword-based approaches without
+needing the large-scale, hand-annotated training data associated with
+complex language understanding tasks~\cite{thomason:15}. 
+
+To this end, we trained a semantic parser with a tiny set of
+expressions paired with robot goals.  The natural language
+understanding component of our system is this semantic parser together
+with a conversational dialog agent.  The dialog agent keeps track of
+the system's partial understanding of the goal the user is trying to
+convey and asks clarification questions to refine that understanding.
+
+%\item[Understanding natural language requests:] Since one of the most
+% convenient means for humans to convey instructions is natural
+%language, we have introduced methods enabling natural language
+%requests to be understood by robots by grounding requests using a
+%robot's existing domain knowledge, and how robots can incrementally
+%learn larger vocabularies through conversation~\cite{thomason:15}.
+
+\subsection{Grounded multimodal language learning}
+%\item[Grounded multimodal language learning:]
+Often it is necessary
+for a robot to ground language using its own perception and actions
+with respect to objects.  Consider the case where a human asks a
+service robot, ``Please bring me the full red bottle''.  To fulfill
+such a request, a robot would need to detect objects in its
+environment and determine whether the words ``full'', ``red'', and
+``bottle'' match a particular object detection.  Furthermore, such a
+task cannot be solved using static visual object recognition methods
+as detecting whether an object is full or empty may often require the
+robot to perform a certain action on it (e.g., lift the object to
+measure the force it exerts on the arm).
+
+This research contribution~\cite{thomason:ijcai16} focused on solving the {\it symbol
+grounding problem} \cite{harnad1990symbol}, a longstanding challenge
+in AI, where language is grounded using the robot's perception and
+action.
+%~\cite{tellex:ai11,matuszek:icml12,krishnamurthy:acl13,perera:aaai13,kollar:rss13,tellex:rss14,matuszek:aaai14,parde:ijcai15,spranger:ijcai15}.  
+To address this problem, we enable a robot to undergo two distinct developmental stages:
+
+\begin{enumerate}
+\item {\it Object Exploration Stage} -- the robot interacts with objects using a set of exploratory behaviors designed to produce different kinds of multi-modal feedback.
+\item {\it Social Learning Stage} -- the robot interacts with humans in order to learn mappings from its sensorimotor experience with objects to words that can be used to described the objects.
+\end{enumerate}
+
+%\item[Grounded multimodal language learning:] We have introduced
+%algorithms enabling a robot to learn to ground certain human
+%instructions, such as ``Bring me a full, red bottle.'', in its
+%perception and actions~\cite{thomason:ijcai16}.
+
+\subsection{Learning multi-step tasks from demonstration}
+%\item[Learning multi-step tasks from demonstration:]
+Much previous research in learning from demonstration has focused on
+learning policies---mappings from states to actions---for skills such
+as a tennis swing or humanoid walking.  However, these techniques
+typically perform poorly for complex, multi-step tasks that cannot be
+represented monolithically with a single policy.  We developed a
+series of LfD algorithms that, for the first time, allowed a robot to
+learn the structure of complex tasks such as IKEA furniture assembly
+from a small number of
+demonstrations~\cite{niekum2013semantically,niekum2013incremental,niekum2015online,niekum2012learning,niekum2015learning}. This
+research led to state-of-the-art Bayesian nonparametric and control
+techniques that were able to automatically identify an appropriate
+number of skills from task demonstrations~\cite{niekum2012learning},
+infer the goals of each
+skill~\cite{niekum2011clustering,niekum2015online}, construct
+controllers to accomplish these goals, and intelligently sequence
+these controllers based on perceptual
+feedback~\cite{niekum2013semantically,niekum2013incremental,niekum2015learning}.
+
+\subsection{Robot-centric human activity recognition}
+%\item[Robot-centric human activity recognition:] 
+For a robot to effectively function in a human-inhabited environment,
+it would be useful for it to be aware of the activities and
+intentions of humans around it based on its own observations. For
+example, consider the case where a robot is navigating a crowded
+environment such as an undergraduate computer lab. If the robot could
+recognize when a person needs help, or when a person is trying to
+approach or engage it (or avoid it), its social and navigational
+skills would improve dramatically.  For this purpose, we contributed a novel 
+approach which explores how human activity can be
+recognized, making it possible for a robot to understand the intent
+of humans in its vicinity.
+
+%To address visual activity recognition, the computer vision research
+%community has produced a wide array of methods for recognizing human
+%activities (see \cite{aggarwal2011human} for a review). Most relevant
+%to our work are studies in which the video is captured by a
+%robot. Such studies are relatively new and include the works of
+%\cite{ryoo2015robot,lu15,ryoo13,chrungoo2014activity}. This existing
+%work is subject to several limitations: 1)~The activities were not
+%carried out spontaneously but rather, were rehearsed or commanded by
+%the experimenters; 2)~The activities were performed by a small number
+%of people, typically 5-8; 3)~The robot was typically either stationary
+%or teleoperated.
+
+%Our work on activity recognition overcomes these limitations in
+%several important ways. First,
+Our robot uses its autonomous
+navigation capability in a large, unstructured, and human-inhabited
+environment.
+%, as opposed to a laboratory.  Second, 
+The activities
+learned by our robot were performed spontaneously by many different
+people who interacted with (or were observed by) the robot, as opposed
+to the standard methodology of asking study participants to perform
+certain actions. 
+%And third, 
+In contrast to classic computer vision
+approaches, our system uses both visual and non-visual cues when
+recognizing the activities of humans that it interacts with~\cite{gori2015robot}.
+
+
+%\item[Robot-centric human activity recognition:] We have demonstrated
+%that a robot can categorize human activity more effectively when it is
+%aware of its location in the environmnet in order to better understand
+%the behavior of humans in its vicinity~\cite{gori2015robot}.
+
+
+\subsection{Planning using action language ${\cal BC}$}
+%\item[Planning using action language ${\cal BC}$:] 
+General purpose planning domain descriptions can be written using
+various modes. Action languages such as ${\cal BC}$ are attractive in
+task planning for mobile robots because they solve the \emph{frame
+problem}, which states that many axioms are necessary to express that
+things in the environment do not change arbitrarily~\cite{mcc69}.
+For example, when a robot picks up an object from the table, it does
+not change the location of a different object on the table.  ${\cal
+BC}$ solves this problem by easily expressing rules of inertia.  In
+addition, ${\cal BC}$ can solve the \emph{ramification problem}, which
+is concerned with the indirect consequences of an
+action~\cite{fin86}.  For example, when a robot picks up a tray from
+the table, it indirectly changes the location of any object on the
+tray.  ${\cal BC}$ can also easily express indirect and recursive
+effects of actions.
+
+%Existing tools such as \textsc{coala}~\cite{geb10} and
+%\textsc{cplus2asp}~\cite{bab13} allow us to translate ${\cal BC}$
+%action descriptions into logic programs under answer set
+%semantics~\cite{gel88,gel91b}, and planning can be accomplished using
+%computational methods of ASP~\cite{mar99,nie99}.
+
+We have demonstrated how action language ${\cal BC}$ can be used for
+robot task planning in domains requiring planning in the presence of
+missing information and indirect/recursive action
+effects~\cite{khandelwal2014planning}. While we demonstrate using
+${\cal BC}$ to express a mail collection task, the overall methodology
+is applicable to any other planning domains that require: recursive
+and indirect action effects, defeasible reasoning, and acquiring
+previously unknown knowledge through human-robot interaction. In
+addition, we also demonstrated how answer set planning under action
+costs \cite{eiter2003answer} can be applied to robot task planning in
+conjunction with ${\cal BC}$~\cite{khandelwal2014planning}.
+
+%\item We have demonstrated that domain knowledge and planning
+%descriptions for robots can be written using action language ${\cal
+%BC}$, allowing robots to achieve complex goals using defeasible
+%reasoning\footnote{Defeasible reasoning allows a planner to draw
+%tentative conclusions which can be retracted based on further
+%evidence.} and indirect/recursively defined fluents
+
+\subsection{Integrating probabilistic and symbolic reasoning}
+%\item[Integrating probabilistic and symbolic reasoning:]
+While action
+language ${\cal BC}$ can express defeasible reasoning, it cannot
+express probabilities, and consequently cannot be used for stochastic
+planning.  We therefore introduced a method for robots to efficiently
+and robustly fulfill service requests in human-inhabited environments
+by simultaneously reasoning about commonsense knowledge expressed
+using defeasible reasoning and computing plans under
+uncertainty~\cite{zhang2015corpp}.  We illustrated this planning
+paradigm using a Spoken Dialog System (\textsc{sds}), where the robot
+identifies a spoken shopping request from the user in the presence of
+noise and/or incomplete instructions.  The goal of the system is to
+identify the shopping request as quickly as possible while minimizing
+the cost of asking questions.  Once confirmed, the robot attempts to
+deliver the item.  While this planning paradigm is described in the
+context of an \textsc{sds}, it can just as easily be applied to other
+stochastic planning problems as well.
+
+%Commonsense knowledge is the knowledge that is \emph{normally} true
+%but not always, e.g., office doors are closed during holidays and
+%people prefer coffee in the mornings.  Logical commonsense knowledge
+%needs to be expressed via defeasible reasoning, and probabilistic
+%commonsense knowledge needs to be expressed via probability
+%distributions. In parallel with commonsense reasoning, robots
+%frequently need to compute a plan including more than one action to
+%accomplish tasks that cannot be completed through single actions. To
+%do so, it is necessary to model the uncertainty in the robot's local,
+%unreliable observations and nondeterministic action outcomes while
+%planning toward maximizing long-term reward.
+%
+%With this motivation in mind, we introduced the \textsc{corpp}
+%(COmmonsense Reasoning and Probabilistic Planning)
+%algorithm~\cite{zhang2015corpp}.  While commonsense reasoning and
+%planning under uncertainty have been studied separately,
+%\textsc{corpp}, for the first time, exploits their complementary
+%features by integrating \textsc{pomdp}s and
+%\textsc{p-log}~\cite{baral2009probabilistic} and enables robots to
+%simultaneously reason about both logical and probabilistic commonsense
+%knowledge and plan toward maximizing long-term reward under
+%uncertainty~\cite{zhang2015corpp}.
+
+%\item We have demonstrated that robots can incorporate probability
+%distributions with symbolic reasoning to implement a spoken dialog
+%system, allowing them to intelligently ask questions in order to
+%quickly understand human instructions~\cite{zhang2015corpp}.
+
+
+
+%\end{description}
+
+A much more extensive list of relevant research contributions, as well
+as links to our papers, is available from the application webpage.
+
+\section{Re-Usability}
+\label{sec:reuse}
+
+Throughout our development, we will continue our strong tradition of releasing well-documented, self-contained behavior modules for components of autonomous robots that can be used by other research groups to enhance their own research.  As listed with links on the propoosal webpage, these include:
+
+\begin{itemize}
+
+\item Our BWI code repository provides an open source suite of ROS
+packages, fully integrated into an architecture for service robots
+that operate in dynamic and unstructured human-inhabited environments.
+It has been built on top of the Robot Operating System (ROS)
+middleware framework~\cite{quigley2009ros}, and is available
+open-source at \url{https://github.com/utexas-bwi/}. This software
+architecture provides a hierarchical layered approach for controlling
+autonomous robots, where layers in the hierarchy provide different
+granularities of control.  Specifically, this architecture includes
+navigation software that allows a mobile robot to move autonomous
+inside a building, while being able to switch 2D navigational maps
+when using the elevator to move to a different floor. A symbolic
+navigation module is built on top of this autonomous navigation module
+which allows the robot to navigate to prespecified doors, rooms, and
+objects in the environment.  From a high-level perspective, the software
+architecture includes planning and reasoning modules that allow the
+robot to execute high level tasks, such as delivering an object from
+one part of the building to another, using a complex sequence of
+symbolic actions.
+
+\item Our TEXPLORE code provides an open-source package for
+reinforcement learning on real robots.
+
+\item Our ar\_track\_alvar ROS package has become a community standard
+for tag-based perception
+
+\item Our ROS implementation of Dynamic Movement Primitives has become
+a popular tool for learning from demonstration.
+
+\item We have made research code available for:
+
+  \begin{itemize}
+  \item Bayesian changepoint detection,
+  \item active articulated model estimation, and
+  \item Bayesian nonparametric skill learning from demonstration.
+  \end{itemize}
+
+\end{itemize}
+
+Our team has also released several packages based on our robot soccer
+software that have been used by other teams.  These include source code
+for our championship teams in both the 3D simulation league and the
+soccer standard platform league, as detailed (with links) on our
+application webpage.
+
+We are fully committed to sharing any useful innovations that result
+from our participation in RoboCup@Home by releasing self-contained,
+fully documented modules for component tasks that will be useful for
+future RoboCup@Home participants, and more broadly by AI and robotics
+researchers around the world.
